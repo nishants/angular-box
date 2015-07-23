@@ -5,30 +5,14 @@
   crawler.app.config([
     '$stateProvider', function($stateProvider) {
       return $stateProvider.state('home', {
-        url: "/indexedPages",
+        url: "/home",
         views: {
           default: {
-            templateUrl: "../public/pages/_indexed_pages.html",
-            controller: "IndexedPagesController"
+            templateUrl: "pages/homepage.html",
+            controller: "HomeController"
           }
         }
-      }).state('submit-url', {
-        url: "/submitUrl",
-        views: {
-          default: {
-            templateUrl: "../public/pages/_submit_link_form.html",
-            controller: "SubmitUrlFormController"
-          }
-        }
-      }).state('edit-page', {
-        url: "/:id/edit",
-        views: {
-          default: {
-            templateUrl: "../public/pages/_edit_page_form.html",
-            controller: "EditFormController"
-          }
-        }
-      })
+      });
     }
   ]);
 
