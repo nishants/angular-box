@@ -18,11 +18,11 @@
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="page in pages">
-      	<td colspan="2"><a href="#/{{page.id}}/edit">{{page.url}}</a></td>
-      	<td>{{page.title}}</td>
-      	<td>{{page.description}}</td>
-      	<td>{{page.keywords}}</td>
+      <tr ng-repeat="item in items">
+      	<td colspan="2"><a href="#/{{item.id}}/edit">{{item.id}}</a></td>
+      	<td>{{item.name}}</td>
+      	<td>{{item.description}}</td>
+      	<td>{{item.date}}</td>
       </tr>
     </tbody>
   </table>
