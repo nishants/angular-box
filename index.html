@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>My App Title</title>
+<meta name="keywords" content="javascript, angularjs, jquery, html5, css3, template"/>
+<meta name="description" content="A sample django app."/>
+
+ <meta charset="utf-8">
+    <link href="css/lib/bootstrap.min.css" rel="stylesheet">
+    <link href="css/crawler/app.css" rel="stylesheet">
+
+    <script src="js/lib/angular/angular.min.js"></script>
+    <script src="js/lib/angular/angular-ui-router.min.js"></script>
+    <script src="js/lib/restangular/restangular.min.js"></script>
+    <script src="js/lib/underscore/underscore-min.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/services.js"></script>
+    
+    <script src="js/controllers/app-controller.js"></script>
+
+    <script src="js/routes.js"></script>
+    <script src="js/back_button.js"></script>    
+</head>
+
+<body ng-app="crawler-app">
+	<div id="main-container" 
+        class="container" 
+        ui-view="default" 
+        ng-controller="AppController">
+
+		<p ng-show="loader.visible()"></p>
+	</div>
+</body>
+</html>
