@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  crawler.app.controller('AppController', function ($scope, homeService, $location) {
+  crawler.app.controller('AppController', function ($scope, appService, $location) {
     var
         onGetItems = function (rediretUrl) {
           return function(items){
@@ -15,7 +15,7 @@
         };
 
     $scope.init = function (rediretUrl) {
-      homeService.getAllItems(onGetItems(rediretUrl), onFailure);
+      appService.getAllItems(onGetItems(rediretUrl), onFailure);
     };
 
     $scope.loader = {

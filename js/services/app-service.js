@@ -1,7 +1,8 @@
 (function () {
   'use strict';
 
-  crawler.app.service('homeService', function ($http) {
+  // static data, shared across the app (caches as needed)
+  crawler.app.service('appService', function ($http) {
     var response = {
       data: [
         {
