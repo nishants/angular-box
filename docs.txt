@@ -1,0 +1,24 @@
+arch : 
+ AppController : 
+ - parent of each scope in the app
+ - place to put int app logic like login, splash-screen, navigation, loading static data
+
+application-scope : 
+ - holds data shared across the elements, 
+ - better alternative : use a service/ say appService instead of app-scope. (allows encapsulating the data)
+
+On landing : 
+- index page launched, with app controller.
+- app controller shows splash-screen(say loader), while it loads the static data
+- then it puts the static data on "appplication-scope"
+- now static data is avialable to all the controllers/views through their own scope.
+
+Issues: 
+- angularjs bad error message
+- routing errors/ injection errors etc, are not descriptive
+- solutions : 
+    - remember error messages 
+    - look up on google
+    - make architecture more suitable for it
+
+     
