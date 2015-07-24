@@ -2,22 +2,20 @@
   'use strict';
 
   crawler.app.controller('AppController', function ($scope, homeService, $location) {
-    $scope.pages = [];
+    var
+        onGetItems = function (rediretUrl) {
+          return function(items){
+            $scope.items = items;    //a available to whole app(as every other scope is a child
+            $location.url(rediretUrl);
+          };
+        },
 
-    var onSuccess = function (response) {
-      $scope.pages = response;
-    }
-
-    var onFailure = function (response) {
-      console.error("Failed to fetch pages : ")
-    }
-
-    var loadPages = function () {
-      crawlerService.getPages().then(onSuccess, onFailure)
-    };
+        onFailure = function (response) {
+          console.error("Failed to fetch pages : ")
+        };
 
     $scope.init = function (rediretUrl) {
-      $location.url(rediretUrl);
+      homeService.getAllItems(onGetItems(rediretUrl), onFailure);
     };
 
     $scope.loader = {
