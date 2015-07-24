@@ -31,3 +31,6 @@ Testing :
 
 
 - add chrome plugin to dislay console errors : "JavaScript Errors Notifier"
+
+errors
+-jasmine didn't discover angular module : angularmock not working
