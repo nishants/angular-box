@@ -1,7 +1,7 @@
 (function () {
   'use strict';
   window.crawler = {};
-  crawler.app = angular.module("crawler-app", ['ui.router']);
+  crawler.app = angular.module("app", ['ui.router']);
 
   crawler.app.config(
       function () {

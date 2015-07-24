@@ -1,6 +1,6 @@
 describe("Landing page : AppController", function() {
 
-  beforeEach(module('crawler-app'));
+  beforeEach(module('app'));
 
   var controller,
       scope;
