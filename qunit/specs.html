@@ -20,26 +20,34 @@
   <script src="../js/controllers/home-controller.js"></script>
   <script src="../js/directives/back_button.js"></script>
 
+  // Mocking the backend
+  <script src="lib/angular-mock.js"></script>
+  <script src="helper/test-controller.js"></script>
+
+
 </head>
 <body>
 <div id="qunit"></div>
 
 <div id="app-fixture" ng-app="app">
-
-  <div id="main-container"
-       ui-view="default"
-       ng-init="init('/home')"
-       ng-controller="AppController">
-    <p ng-show="loader.visible()">Waiting for data...</p>
+  <div ng-controller="TestController">
+    <div id="main-container"
+         ui-view="default"
+         ng-init="init('/home')"
+         ng-controller="AppController">
+      <p ng-show="loader.visible()">Waiting for data...</p>
+    </div>
   </div>
-
 </div>
-
 
 <script src="lib/qunit.js"></script>
 <script src="lib/jquery.js"></script>
 <script>
-  $.noConflict();
+  jQuery.noConflict();
+  jQuery(document).load(function () {
+    injector.get("$httpBackend").expectGET
+  });
+
 </script>
 
 <!-- include spec files here... -->

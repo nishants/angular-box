@@ -13,6 +13,18 @@ On landing :
 - then it puts the static data on "appplication-scope"
 - now static data is avialable to all the controllers/views through their own scope.
 
+- Layers
+ - html       : ui-structure and elements
+ - css        : ui-styling,layout
+ - directives : create/modify ui elements and element behaviours
+                i.e. act on page scroll, create new widget
+
+ - controller : interface between app and user interface
+ - models     : relationships/encapsulation of data.
+
+ - services   : business logic on aggregation, resolution/filtering/transformation of data
+ - data       : abstracts data source (local storage, http, cookies etc)
+
 Issues: 
 - angularjs bad error message
 - routing errors/ injection errors etc, are not descriptive
@@ -21,16 +33,22 @@ Issues:
     - look up on google
     - make architecture more suitable for it
 
+optimizations :
+- $httpProvider.useApplyAsync(true) :
+   - wait for approx 10ms before applying next digest cycle.
+   - saves digest cycles per request
+   read more : https://docs.angularjs.org/api/ng/provider/$httpProvider
+
+
 Tweaks :
  - break index.html for js dependencies - resuse in specrunner
 
 
 Testing :
--
 - angular directives with jasmine
 
 
-- add chrome plugin to dislay console errors : "JavaScript Errors Notifier"
+- add chrome plugin to display console errors : "JavaScript Errors Notifier"
 
 errors
 -jasmine didn't discover angular module : angularmock not working
