@@ -24,13 +24,12 @@
 <body>
 <div id="qunit"></div>
 
+<div id="app-fixture" ng-app="app">
 
-<div id="ng-fixture" ng-app="app">
   <div id="main-container"
        ui-view="default"
        ng-init="init('/home')"
        ng-controller="AppController">
-
     <p ng-show="loader.visible()">Waiting for data...</p>
   </div>
 
