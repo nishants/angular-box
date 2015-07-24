@@ -21,4 +21,13 @@ Issues:
     - look up on google
     - make architecture more suitable for it
 
-     
+Tweaks :
+ - break index.html for js dependencies - resuse in specrunner
+
+
+Testing :
+-
+- angular directives with jasmine
+
+
+- add chrome plugin to dislay console errors : "JavaScript Errors Notifier"
