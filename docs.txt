@@ -1,6 +1,6 @@
 arch : 
  AppController : 
- - parent of each scope in the app
+ - parent of each control
  - place to put int app logic like login, splash-screen, navigation, loading static data
 
 application-scope : 
@@ -25,7 +25,11 @@ On landing :
  - services   : business logic on aggregation, resolution/filtering/transformation of data
  - data       : abstracts data source (local storage, http, cookies etc)
 
-Issues: 
+Views and routes
+- view = html + controller    (and global css)
+
+
+Issues:
 - angularjs bad error message
 - routing errors/ injection errors etc, are not descriptive
 - solutions : 

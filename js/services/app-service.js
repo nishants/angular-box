@@ -9,19 +9,19 @@
           id: "1",
           name: "One",
           description: "first one",
-          date: new Date(),
+          date: "00:58:43 - 2015-07-27",
         },
         {
           id: "2",
           name: "Two",
           description: "second one",
-          date: new Date(),
+          date: "11:58:43 - 2015-07-27",
         },
         {
           id: "3",
           name: "Three",
           description: "third one",
-          date: new Date(),
+          date: "21:58:43 - 2015-07-27",
         }
       ]
     };
