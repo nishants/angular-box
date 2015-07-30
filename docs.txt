@@ -56,3 +56,35 @@ Testing :
 
 errors
 -jasmine didn't discover angular module : angularmock not working
+
+
+---------------
+what makes js different :
+1. portable production environment
+2. source code is delivered, instead of compiled/packaged app.
+
+------------------
+injector : only for use with mocha and jasmine(no qunit ?)
+ 1. _<name>_ : is resolved as <name>
+ e.g.       injector(function(){_$http_})
+ same as  : injector(function(){$http})
+
+--------------------------
+how injector works :
+1. takes an array as argument :
+arr = []
+inject(arr)
+
+2. in array, expects names of dependencies, followed by a function
+arr = ["service1", "service2", function(service1, service2){}]
+
+3. We can completely skip the array though (depndecies found by variable name)
+inject(function(service1, service2){
+
+})
+
+4. but we will be skrewed if we minimized it :
+inject(function(a, b){
+  // minimizer skrewed our param names
+})
+------------------
