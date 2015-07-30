@@ -1,10 +1,10 @@
 (function () {
   'use strict';
 
-  crawler.app.controller('AppController', function ($scope, appService, $location) {
+  crawler.app.controller('AppController', ["$scope", "$location", "appService", function ($scope, $location, appService) {
     var
         onGetItems = function (rediretUrl) {
-          return function(items){
+          return function (items) {
             $scope.items = items;    //a available to whole app(as every other scope is a child
             $location.url(rediretUrl);
           };
@@ -24,6 +24,6 @@
       }
     };
 
-  });
+  }]);
 
 }).call(this);
