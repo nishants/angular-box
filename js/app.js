@@ -5,7 +5,7 @@
 
   crawler.app.config(
       function () {
-        console.log("started app, set config here");
+        //console.log("started app, set config here");
       }
   );
 
