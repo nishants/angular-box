@@ -14,39 +14,38 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
 
 </head>
-<script>
-    var app = angular.module("myfirstapp", ['ui.router']);
-    app.config(["$stateProvider", function($stateProvider){
-        $stateProvider.state(
-                "home",{
-                    url: "", //empty for homepage
-                    template: "aaa gale lag ja...<ul ng-repeat='item in items'><li>{{item.name}}, {{item.id}}, <a ui-sref='edit({id: item.id})'>edit</a></li></ul>",
-                    controller: "HomeController"
-                }
-        ).state("edit",{
-                    url: "items/edit/:id",
-                    template: "edit this guy",
-                    controller: "EditItemPageController"
-                });
 
-    }]);
-
-    app.controller("HomeController", ["$scope", function($scope){
-        $scope.items = [{name: 'one', id: 1}, {name: 'two', id: 2}, {name: 'three', id: 3}];
-    }]);
-
-    app.controller("EditItemPageController", ["$scope", function($scope){
-    }]);
-
-
-</script>
-
-<body ng-app="myfirstapp">
-<p>My first app</p>
-
-<div ui-view></div>
-
+<body ng-app="myfirstapp"> 
+<div id=“current-page” ui-view>
+    <!—pages are rendered here-->
+</div>
 </body>
 
+<script>
+    var app = angular.module("myfirstapp", ['ui.router']);
+
+    app.config(["$stateProvider", function ($stateProvider) {
+        $stateProvider
+                .state("home-page", {
+                    url: "",
+                    template: '<h1>hompage</h1><p>first page users see on lanching app</p>'
+                })
+                .state("items-page", {
+                    url: "/items",
+                    template: "<ul ng-repeat='item in items'><li>{{item.name}}</li></ul>",
+                    controller: function($scope, ItemService){
+                        $scope.items = ItemService.items();
+                    }
+                });
+    }]);
+
+    app.service("ItemService", function(){
+        return {
+            items: function(){
+                return [{name: "item-one"}, {name: "item-two"}];
+            }
+        }
+    });
+</script>
 
 </html>
