@@ -7,8 +7,6 @@
 
     <meta charset="utf-8">
     <link href="css/lib/bootstrap.min.css" rel="stylesheet">
-    <link href="css/app.css" rel="stylesheet">
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.3/angular.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
@@ -28,23 +26,21 @@
         $stateProvider
                 .state("home-page", {
                     url: "",
-                    template: '<h1>hompage</h1><p>first page users see on lanching app</p>'
+                    template: '<h1>hompage</h1><a ui-sref="items-page">List Items</a>'
                 })
                 .state("items-page", {
                     url: "/items",
-                    template: "<ul ng-repeat='item in items'><li>{{item.name}}</li></ul>",
-                    controller: function($scope, ItemService){
-                        $scope.items = ItemService.items();
-                    }
+                    template: "<h1>items list</h1><ul ng-repeat='item in items'><li>{{item.name}}</li></ul>",
+                    controller: ["$scope", "ItemService",function($scope, ItemService){
+                        $scope.items = ItemService.items;
+                    }]
                 });
     }]);
 
-    app.service("ItemService", function(){
-        return {
-            items: function(){
-                return [{name: "item-one"}, {name: "item-two"}];
-            }
-        }
+    app.factory("ItemService", function(){
+        var service = {};
+        service.items = [{name: "item-one"}, {name: "item-two"}];
+        return service;
     });
 </script>
 
